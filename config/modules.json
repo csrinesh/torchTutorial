@@ -2,13 +2,13 @@
     {
         "moduleName" : "module1",
         "path"       : "modules/module1/module1.py",
-        "execute"    : true,
+        "execute"    : false,
         "description": "",
         "owner"      : ""
     }, {
-        "moduleName" : "celeryCheck",
-        "path"       : "modules/celeryCheck/celeryCheck.py",
-        "execute"    : false,
+        "moduleName" : "tfTutorial",
+        "path"       : "modules/tfTutorial/mnist.py",
+        "execute"    : true,
         "description": "",
         "owner"      : ""
     }

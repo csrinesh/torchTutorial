@@ -1,9 +1,9 @@
-from logs import logDecorator as lD 
-import jsonref, pprint
-from lib.celeryWorkerExample import worker_1
+import tensorflow as tf 
+from logs import logDecorator  as lD
+import jsonref
 
 config = jsonref.load(open('../config/config.json'))
-logBase = config['logging']['logBase'] + '.modules.celeryCheck.celeryCheck'
+logBase = config['logging']['logBase'] + '.modules.module1.module1'
 
 
 @lD.log(logBase + '.doSomething')
@@ -18,16 +18,7 @@ def doSomething(logger):
         The logger used for logging error information
     '''
 
-    try:
-        result = worker_1.add.delay(2, 2)
-        for i in range(100):
-            print(result.state)
-
-        if result.state == 'SUCCESS':
-            r = result.get()
-            print(f'The result of this calculation is: {r}')
-    except Exception as e:
-        logger.error(f'Unable to geenrate the celery module" {e}')
+    print(tf.__version__)
 
     return
 
@@ -49,14 +40,6 @@ def main(logger, resultsDict):
         overwriting command line arguments as needed.
     '''
 
-    print('='*30)
-    print('Main function of celeryCheck')
-    print('='*30)
-    
     doSomething()
 
-    print('Getting out of celeryCheck')
-    print('-'*30)
-
     return
-

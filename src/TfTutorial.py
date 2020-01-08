@@ -2,7 +2,6 @@ import jsonref, argparse
 
 from importlib      import util
 from logs           import logDecorator  as lD
-from lib.testLib    import simpleLib     as sL
 from lib.argParsers import addAllParsers as aP
 
 config   = jsonref.load(open('../config/config.json'))
@@ -93,23 +92,24 @@ def main(logger, resultsDict):
     # for other functions to follow
     # -----------------------------------
 
-    sampleValues = [
-        (1, 2),
-        (1.2, 5),
-        (3, 'a'),
-        ('First', 'Second'),
-        (55,)
-    ]
+    # sampleValues = [
+    #     (1, 2),
+    #     (1.2, 5),
+    #     (3, 'a'),
+    #     ('First', 'Second'),
+    #     (55,)
+    # ]
 
-    for s in sampleValues:
-        try:
-            sL.simpleTestFunction(*s)
-        except Exception as e:
-            logger.error('Unable to perform addition with values [{}]\n:{}'.format(
-                s, str(e)))
+    # for s in sampleValues:
+    #     try:
+    #         sL.simpleTestFunction(*s)
+    #     except Exception as e:
+    #         logger.error('Unable to perform addition with values [{}]\n:{}'.format(
+    #             s, str(e)))
+
 
     return
-
+    
 if __name__ == '__main__':
 
     # Let us add an argument parser here
